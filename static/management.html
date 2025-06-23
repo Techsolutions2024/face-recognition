@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP Vision - Cổng Quản Lý</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        /* Thêm một vài style tùy chỉnh cho trang quản lý */
+        main, aside { flex-basis: 0; } /* Reset flex-basis để chia đều */
+        main { flex-grow: 1; }
+        aside { flex-grow: 1.5; }
+        form { display: flex; flex-direction: column; gap: 15px; }
+        input, select, textarea, button {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+        textarea { resize: vertical; min-height: 80px; }
+        button {
+            cursor: pointer;
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            font-weight: bold;
+        }
+        button:hover { background-color: #166fe5; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #ddd; }
+        th { background-color: #f0f2f5; }
+        .delete-btn { background-color: #dc3545; font-size: 0.8rem; padding: 5px 10px; }
+        .delete-btn:hover { background-color: #c82333; }
+        #statusMessage { margin-top: 10px; padding: 10px; border-radius: 5px; text-align: center; display: none; }
+        #statusMessage.success { background-color: #a7e1a3; }
+        #statusMessage.error { background-color: #fca7a7; }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Cổng Quản Lý VIP</h1>
+        
+        <form id="addVipForm">
+            <h2>Thêm VIP Mới</h2>
+            
+            <label for="vipName">Tên VIP:</label>
+            <input type="text" id="vipName" placeholder="Ví dụ: Nguyễn Văn A" required>
+            
+            <label for="vipCategory">Phân loại:</label>
+            <input type="text" id="vipCategory" placeholder="Ví dụ: Platinum, Gold, Silver" required>
+            
+            <label for="vipNotes">Ghi chú:</label>
+            <textarea id="vipNotes" placeholder="Ví dụ: Thích cà phê đen. Dị ứng hải sản."></textarea>
+            
+            <label for="vipDob">Ngày sinh (MM-DD):</label>
+            <input type="text" id="vipDob" placeholder="Ví dụ: 06-25">
+            
+            <label for="vipImage">Ảnh chân dung:</label>
+            <input type="file" id="vipImage" accept="image/jpeg, image/png" required>
+            
+            <button type="submit">Thêm VIP</button>
+
+            <div id="statusMessage"></div>
+        </form>
+    </main>
+    <aside>
+        <h2>Danh Sách VIP Hiện Tại</h2>
+        <table id="vipTable">
+            <thead>
+                <tr>
+                    <th>Tên</th>
+                    <th>Phân Loại</th>
+                    <th>Ghi chú</th>
+                    <th>Hành Động</th>
+                </tr>
+            </thead>
+            <tbody id="vipList">
+                </tbody>
+        </table>
+    </aside>
+
+    <script src="/static/management.js"></script>
+</body>
+</html>

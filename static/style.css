@@ -1,0 +1,124 @@
+/* vip-recognition-web/static/style.css */
+
+/* === STYLES CHUNG === */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    color: #1c1e21;
+}
+
+main, aside {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1, h2 {
+    border-bottom: 1px solid #dddfe2;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* === STYLES CHO TRANG NHẬN DIỆN === */
+main { flex-basis: 680px; flex-shrink: 0; }
+aside { flex-basis: 400px; flex-grow: 1; max-height: 85vh; overflow-y: auto; }
+
+video {
+    width: 100%;
+    border-radius: 8px;
+    background-color: #000;
+}
+
+canvas {
+    display: none;
+}
+
+.status {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.status.connecting { background-color: #ffeca5; }
+.status.connected { background-color: #a7e1a3; }
+.status.disconnected { background-color: #fca7a7; }
+
+/* === STYLES CHO CÁC THẺ KẾT QUẢ NHẬN DIỆN === */
+.result-card {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-left: 5px solid;
+    transition: background-color 0.3s;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Các màu sắc cho cảnh báo thông minh */
+.result-card.normal-vip {
+    border-color: #28a745; /* Xanh lá */
+    background-color: #eaf6ec;
+}
+.result-card.returning-vip {
+    border-color: #FFC107; /* Vàng */
+    background-color: #FFF8E1;
+}
+.result-card.birthday-vip {
+    border-color: #8A2BE2; /* Tím */
+    background-color: #E6E6FA;
+}
+.result-card.stranger {
+    border-color: #fd7e14; /* Cam */
+    background-color: #fff3e0;
+}
+
+.result-card p { margin: 0; font-size: 0.9rem; color: #606770; }
+.result-card .name { font-weight: 600; font-size: 1.1rem; color: #1c1e21; margin-bottom: 5px; }
+
+.result-card .note {
+    font-style: italic;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #ddd;
+    color: #555;
+    white-space: pre-wrap;
+}
+
+/* === STYLES CHO TRANG QUẢN LÝ === */
+/* (Các style này trước đây nằm trong file management.html) */
+body.management-page main, body.management-page aside { flex-basis: 0; }
+body.management-page main { flex-grow: 1; }
+body.management-page aside { flex-grow: 1.5; }
+
+form { display: flex; flex-direction: column; gap: 15px; }
+form input, form select, form textarea, form button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+form textarea { resize: vertical; min-height: 80px; }
+form button { cursor: pointer; background-color: #1877f2; color: white; border: none; font-weight: bold; }
+form button:hover { background-color: #166fe5; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { text-align: left; padding: 12px; border-bottom: 1px solid #ddd; }
+th { background-color: #f0f2f5; }
+.delete-btn { background-color: #dc3545; color: white; font-size: 0.8rem; padding: 5px 10px; cursor: pointer; border: none; border-radius: 5px; }
+.delete-btn:hover { background-color: #c82333; }
+
+#statusMessage { margin-top: 10px; padding: 10px; border-radius: 5px; text-align: center; display: none; }
+#statusMessage.success { background-color: #a7e1a3; }
+#statusMessage.error { background-color: #fca7a7; }

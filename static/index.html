@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP Vision - Hệ Thống Nhận Diện</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main>
+        <h1>Live Camera Feed</h1>
+        <video id="video" muted autoplay playsinline></video>
+        <canvas id="canvas"></canvas>
+        <div id="status" class="status connecting">Đang chờ camera...</div>
+        <div style="text-align: center; margin-top: 15px;">
+            <a href="/management" style="text-decoration: none; font-weight: bold; color: #1877f2;">>> Tới Cổng Quản Lý VIP</a>
+        </div>
+    </main>
+    <aside>
+        <h2>Nhật Ký Nhận Diện</h2>
+        <div id="results">
+            </div>
+    </aside>
+
+    <script src="/static/main.js"></script>
+</body>
+</html>

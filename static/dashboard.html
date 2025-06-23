@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP Vision - Bảng Điều Khiển</title>
+    
+    <link rel="stylesheet" href="/static/style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        /* Thêm một vài style tùy chỉnh chỉ dành cho trang dashboard */
+        body {
+            display: block; /* Ghi đè style flex của body chính */
+        }
+        main.dashboard-container {
+            width: 95%;
+            max-width: 1400px;
+            margin: auto;
+            flex-basis: auto; /* Reset flex-basis */
+        }
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .dashboard-header a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #1877f2;
+            font-size: 1rem;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 20px;
+        }
+        .chart-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="dashboard-page">
+
+    <main class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>Dashboard Analytics</h1>
+            <a href="/">&lt;&lt; Quay lại Màn hình Nhận diện</a>
+        </header>
+        
+        <div class="dashboard-grid">
+            <div class="chart-container">
+                <h3>Phân tích Giờ Vàng (Hôm nay)</h3>
+                <canvas id="hourlyVisitsChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Tỷ Lệ VIP / Khách Lạ (Hôm nay)</h3>
+                <canvas id="ratioChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Top 5 VIP Ghé Thăm (Hôm nay)</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Số lượt ghé thăm</th>
+                        </tr>
+                    </thead>
+                    <tbody id="topVipsTable">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    
+    <script src="/static/dashboard.js"></script>
+</body>
+</html>
